@@ -13,7 +13,6 @@ const AllData = () => {
         console.error("Error fetching data:", error);
       });
   }, []);
-
   return (
     <div className="container-fluid">
       <h4 className="text-center mt-3">

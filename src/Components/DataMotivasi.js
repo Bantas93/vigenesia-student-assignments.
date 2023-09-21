@@ -2,17 +2,37 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const DataMotivasi = () => {
-  let [users, setUsers] = useState([]);
+  let [motivasiData, setMotivasiData] = useState([]);
   useEffect(() => {
     fetch("http://www.vigenesia.org/api/Get_motivasi")
       .then((response) => response.json())
       .then((data) => {
-        setUsers(data);
+        setMotivasiData(data);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
   }, []);
+
+  const handleDeleteClick = (id) => {
+    // Kirim permintaan DELETE ke API dengan ID motivasi
+    fetch(`http://www.vigenesia.org/api/dev/DELETEmotivasi/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Gagal menghapus data");
+        }
+        // Jika berhasil, hapus data dari state lokal
+        setMotivasiData(motivasiData.filter((motivasi) => motivasi.id !== id));
+      })
+      .catch((error) => {
+        console.error("Terjadi kesalahan saat menghapus data:", error);
+      });
+  };
 
   return (
     <div className="container-fluid">
@@ -38,16 +58,26 @@ const DataMotivasi = () => {
               <th className="border">Id User</th>
               <th className="border">Tgl Input</th>
               <th className="border">Tgl Update</th>
+              <th className="border">Aksi</th>{" "}
+              {/* Tambah kolom untuk tombol delete */}
             </tr>
           </thead>
           <tbody>
-            {users.map((user, index) => (
-              <tr key={user.id}>
+            {motivasiData.map((motivasi, index) => (
+              <tr key={motivasi.id}>
                 <td className="border">{index + 1}</td>
-                <td className="border">{user.isi_motivasi}</td>
-                <td className="border">{user.iduser}</td>
-                <td className="border">{user.tanggal_input}</td>
-                <td className="border">{user.tanggal_update}</td>
+                <td className="border">{motivasi.isi_motivasi}</td>
+                <td className="border">{motivasi.iduser}</td>
+                <td className="border">{motivasi.tanggal_input}</td>
+                <td className="border">{motivasi.tanggal_update}</td>
+                <td className="border">
+                  <button
+                    onClick={() => handleDeleteClick(motivasi.id)} // Panggil fungsi handleDeleteClick dengan ID motivasi sebagai argumen
+                    className="btn btn-danger"
+                  >
+                    Hapus
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>
