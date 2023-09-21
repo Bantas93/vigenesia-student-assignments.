@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+.hov:hover {
+  border-radius: 5%;
+  background-color: #edf1fd1d;
+}
+
+.hov-e:hover {
+  border-radius: 5%;
+  background-color: #00000034;
+}
