@@ -29,13 +29,13 @@ const Data = () => {
         >
           Data Motivasi
         </NavLink>
-        <NavLink
+        {/* <NavLink
           to="/Data/DeleteMotivasi"
           className="m-2 p-1 hov-e"
           style={navLinkStyles}
         >
           Delete Motivasi
-        </NavLink>
+        </NavLink> */}
         <Outlet />
       </div>
     </>
