@@ -40,6 +40,7 @@ const AllData = () => {
               <th className="border">Role</th>
               <th className="border">Tgl Input</th>
               <th className="border">Tgl Modified</th>
+              <th className="border">Aksi</th>
             </tr>
           </thead>
           <tbody>
@@ -53,6 +54,17 @@ const AllData = () => {
                 <td className="border">{user.role_id}</td>
                 <td className="border ps-3 pe-3">{user.tanggal_input}</td>
                 <td className="border ps-3 pe-3">{user.modified}</td>
+                <td className="border ps-3 pe-3">
+                  <button>
+                    <Link
+                      to="/Data/UpdateData"
+                      state={{ updateUser: user }}
+                      style={{ textDecoration: "none", color: "black" }}
+                    >
+                      Update
+                    </Link>
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>
