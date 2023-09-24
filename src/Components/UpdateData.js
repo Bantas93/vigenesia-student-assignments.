@@ -3,17 +3,16 @@ import { useState } from "react";
 const UpdateData = () => {
   let { state } = useLocation();
 
-  let nama = state.updateUser.nama;
-  let email = state.updateUser.email;
-  let profesi = state.updateUser.profesi;
+  // let nama = state.updateUser.nama;
+  // let email = state.updateUser.email;
+  // let profesi = state.updateUser.profesi;
 
-  let [getNama, setNama] = useState(nama);
-  let [getEmail, setEmail] = useState(email);
-  let [getProfesi, setProfesi] = useState(profesi);
+  const [getNama, setNama] = useState(state.updateUser.nama);
+  const [getEmail, setEmail] = useState(state.updateUser.email);
+  const [getProfesi, setProfesi] = useState(state.updateUser.profesi);
 
   const setNamaValue = (event) => {
     setNama(event.target.value);
-    nama = event.target.value;
   };
   const setEmailValue = (event) => {
     setEmail(event.target.value);
@@ -23,15 +22,15 @@ const UpdateData = () => {
   };
   function submitUpdate() {
     let formbody = [];
-    // let index = 1;
-    let value1 = encodeURIComponent(getNama);
-    let value2 = encodeURIComponent(getEmail);
-    let value3 = encodeURIComponent(getProfesi);
-    let key1 = encodeURIComponent("iduser");
-    let key2 = encodeURIComponent("nama");
-    let key3 = encodeURIComponent("email");
-    let key4 = encodeURIComponent("profesi");
-    let key5 = encodeURIComponent("password");
+    // const index = 1;
+    const value1 = encodeURIComponent(getNama);
+    const value2 = encodeURIComponent(getEmail);
+    const value3 = encodeURIComponent(getProfesi);
+    const key1 = encodeURIComponent("iduser");
+    const key2 = encodeURIComponent("nama");
+    const key3 = encodeURIComponent("email");
+    const key4 = encodeURIComponent("profesi");
+    const key5 = encodeURIComponent("password");
     formbody.push(key1 + "=" + state.updateUser.iduser);
     formbody.push(key2 + "=" + value1);
     formbody.push(key3 + "=" + value2);
@@ -124,3 +123,97 @@ const UpdateData = () => {
 };
 
 export default UpdateData;
+// import { useLocation } from "react-router-dom";
+// import { useState } from "react";
+
+// const UpdateData = () => {
+//   const { state } = useLocation();
+//   let { iduser, nama, email, profesi, password } = state.updateUser;
+//   const [formData, setFormData] = useState({
+//     nama: nama,
+//     email: email,
+//     profesi: profesi,
+//   });
+
+//   const handleInputChange = (event) => {
+//     const { name, value } = event.target;
+//     setFormData({
+//       ...formData,
+//       [name]: value,
+//     });
+//   };
+//   console.log(setFormData.nama);
+
+//   const submitUpdate = async () => {
+//     try {
+//       const response = await fetch("http://www.vigenesia.org/api/PUTprofile", {
+//         method: "PUT",
+//         headers: {
+//           "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+//         },
+//         body: `iduser=${iduser}&nama=${formData.nama}&email=${formData.email}&profesi=${formData.profesi}&password=${password}`,
+//       });
+
+//       if (!response.ok) {
+//         throw new Error("Failed to update data");
+//       }
+
+//       // Handle success or redirect to another page
+//     } catch (error) {
+//       console.error("Error:", error);
+//       // Handle error and display a message to the user
+//     }
+//   };
+
+//   return (
+//     <div>
+//       <form>
+//         <div className="row justify-content-center">
+//           <div class="col-auto">
+//             <label class="col-form-label">Nama :</label>
+//           </div>
+//           <div class="col-auto">
+//             <input
+//               // value={setFormData.nama}
+//               class="form-control"
+//               onChange={handleInputChange}
+//             />
+//           </div>
+//         </div>
+//         <div className="row justify-content-center">
+//           <div className="row justify-content-center">
+//             <div class="col-auto">
+//               <label class="col-form-label">Email :</label>
+//             </div>
+//             <div class="col-auto">
+//               <input
+//                 // value={state.updateUser.email}
+//                 class="form-control"
+//                 onChange={handleInputChange}
+//               />
+//             </div>
+//           </div>
+//         </div>
+//         <div className="row justify-content-center">
+//           <div className="row justify-content-center">
+//             <div class="col-auto">
+//               <label class="col-form-label">Profesi :</label>
+//             </div>
+//             <div class="col-auto">
+//               <input
+//                 // value={state.updateUser.profesi}
+//                 class="form-control"
+//                 onChange={handleInputChange}
+//               />
+//             </div>
+//           </div>
+//         </div>
+//       </form>
+//       <button className="btn btn-primary m-3" onClick={submitUpdate}>
+//         Update
+//       </button>
+//     </div>
+//   );
+// };
+
+// export default UpdateData;

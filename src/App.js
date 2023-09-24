@@ -5,7 +5,6 @@ import Dashboard from "./Components/Dashboard";
 import Data from "./Components/Data";
 import AllData from "./Components/AllData";
 import DataMotivasi from "./Components/DataMotivasi";
-import DeleteMotivasi from "./Components/DeleteMotivasi";
 import UpdateData from "./Components/UpdateData";
 import About from "./Components/About";
 
@@ -19,7 +18,6 @@ function App() {
           <Route path="/Data" element={<Data />}>
             <Route path="/Data/AllData" element={<AllData />} />
             <Route path="/Data/DataMotivasi" element={<DataMotivasi />} />
-            <Route path="/Data/DeleteMotivasi" element={<DeleteMotivasi />} />
             <Route path="/Data/UpdateData" element={<UpdateData />} />
           </Route>
           <Route path="/About" element={<About />}></Route>

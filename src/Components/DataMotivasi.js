@@ -15,25 +15,33 @@ const DataMotivasi = () => {
   }, []);
 
   const handleDeleteClick = (id) => {
-    // Kirim permintaan DELETE ke API dengan ID motivasi
-    fetch(`http://www.vigenesia.org/api/dev/DELETEmotivasi/${id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Gagal menghapus data");
-        }
-        // Jika berhasil, hapus data dari state lokal
-        setMotivasiData(motivasiData.filter((motivasi) => motivasi.id !== id));
+    if (window.confirm("Yakin mau dihapus ?")) {
+      let formbody = [];
+      const value1 = encodeURIComponent(id);
+      const key1 = encodeURIComponent("id");
+      formbody.push(key1 + "=" + value1);
+      formbody = formbody.join("&");
+      // Kirim permintaan DELETE ke API dengan ID motivasi
+      fetch(`http://www.vigenesia.org/api/dev/DELETEmotivasi?=${id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+        },
+        body: formbody,
       })
-      .catch((error) => {
-        console.error("Terjadi kesalahan saat menghapus data:", error);
-      });
-  };
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Gagal menghapus data");
+          }
 
+          // Jika berhasil, hapus data dari state lokal
+          window.location.reload();
+        })
+        .catch((error) => {
+          console.error("Terjadi kesalahan saat menghapus data:", error);
+        });
+    }
+  };
   return (
     <div className="container-fluid">
       <h4 className="text-center mt-3">
@@ -58,8 +66,8 @@ const DataMotivasi = () => {
               <th className="border">Id User</th>
               <th className="border">Tgl Input</th>
               <th className="border">Tgl Update</th>
-              <th className="border">Aksi</th>{" "}
-              {/* Tambah kolom untuk tombol delete */}
+              <th className="border">Id</th>
+              <th className="border">Aksi</th>
             </tr>
           </thead>
           <tbody>
@@ -70,6 +78,7 @@ const DataMotivasi = () => {
                 <td className="border">{motivasi.iduser}</td>
                 <td className="border">{motivasi.tanggal_input}</td>
                 <td className="border">{motivasi.tanggal_update}</td>
+                <td className="border">{motivasi.id}</td>
                 <td className="border">
                   <button
                     onClick={() => handleDeleteClick(motivasi.id)} // Panggil fungsi handleDeleteClick dengan ID motivasi sebagai argumen
