@@ -80,6 +80,15 @@ const DataMotivasi = () => {
                 <td className="border">{motivasi.tanggal_update}</td>
                 <td className="border">{motivasi.id}</td>
                 <td className="border">
+                  <button className="btn btn-primary m-1">
+                    <Link
+                      to="/UpdateMotivasi"
+                      state={{ updateMotivasi: motivasi }}
+                      style={{ textDecoration: "none", color: "white" }}
+                    >
+                      Update
+                    </Link>
+                  </button>
                   <button
                     onClick={() => handleDeleteClick(motivasi.id)} // Panggil fungsi handleDeleteClick dengan ID motivasi sebagai argumen
                     className="btn btn-danger"

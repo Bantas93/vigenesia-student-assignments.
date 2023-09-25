@@ -1,5 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 const UpdateData = () => {
   let { state } = useLocation();
 
@@ -45,11 +46,10 @@ const UpdateData = () => {
       },
       body: formbody,
     });
-
-    console.log(key1);
-    console.log(state.updateUser["iduser"]);
-    console.log(formbody);
-
+    window.alert(
+      "Data Berhasil Di Update !",
+      (window.location.href = "/Data/AllData")
+    );
     // for (let prop in state.updateUser) {
     //   let key = encodeURIComponent(prop);
     //   let value = encodeURIComponent(state.updateUser[prop]);
@@ -115,6 +115,14 @@ const UpdateData = () => {
           </div>
         </div>
       </form>
+      <button className="btn btn-danger m-3">
+        <Link
+          to="/Data/AllData"
+          style={{ textDecoration: "none", color: "white" }}
+        >
+          ⬅️Back
+        </Link>
+      </button>
       <button className="btn btn-primary m-3" onClick={submitUpdate}>
         Update
       </button>

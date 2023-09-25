@@ -55,11 +55,11 @@ const AllData = () => {
                 <td className="border ps-3 pe-3">{user.tanggal_input}</td>
                 <td className="border ps-3 pe-3">{user.modified}</td>
                 <td className="border ps-3 pe-3">
-                  <button>
+                  <button className="btn btn-primary m-1">
                     <Link
                       to="/Data/UpdateData"
                       state={{ updateUser: user }}
-                      style={{ textDecoration: "none", color: "black" }}
+                      style={{ textDecoration: "none", color: "white" }}
                     >
                       Update
                     </Link>

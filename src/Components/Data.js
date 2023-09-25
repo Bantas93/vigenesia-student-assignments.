@@ -13,8 +13,14 @@ const Data = () => {
   };
   return (
     <>
-      <div className="bg-Education text-center">
-        <h1>Data</h1>
+      <div className="container">
+        <NavLink
+          to="/Data/Login"
+          className="m-2 p-1 hov-e"
+          style={navLinkStyles}
+        >
+          Login
+        </NavLink>
         <NavLink
           to="/Data/AllData"
           className="m-2 p-1 hov-e"
