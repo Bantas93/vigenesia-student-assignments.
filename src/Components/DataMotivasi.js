@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Navbar from "./Navbar";
 
 const DataMotivasi = () => {
   let [motivasiData, setMotivasiData] = useState([]);
@@ -21,7 +22,6 @@ const DataMotivasi = () => {
       const key1 = encodeURIComponent("id");
       formbody.push(key1 + "=" + value1);
       formbody = formbody.join("&");
-      // Kirim permintaan DELETE ke API dengan ID motivasi
       fetch(`http://www.vigenesia.org/api/dev/DELETEmotivasi?=${id}`, {
         method: "DELETE",
         headers: {
@@ -33,8 +33,6 @@ const DataMotivasi = () => {
           if (!response.ok) {
             throw new Error("Gagal menghapus data");
           }
-
-          // Jika berhasil, hapus data dari state lokal
           window.location.reload();
         })
         .catch((error) => {
@@ -44,6 +42,7 @@ const DataMotivasi = () => {
   };
   return (
     <div className="container-fluid">
+      <Navbar />
       <h4 className="text-center mt-3">
         Get Data dari {""}
         <Link
@@ -58,7 +57,7 @@ const DataMotivasi = () => {
         </Link>
       </h4>
       <div className="container p-5">
-        <table className="table table-striped mt-5">
+        <table className="table table-striped mt-5 text-center">
           <thead>
             <tr>
               <th className="border">No</th>
@@ -91,7 +90,7 @@ const DataMotivasi = () => {
                   </button>
                   <button
                     onClick={() => handleDeleteClick(motivasi.id)} // Panggil fungsi handleDeleteClick dengan ID motivasi sebagai argumen
-                    className="btn btn-danger"
+                    className="btn btn-danger m-1"
                   >
                     Hapus
                   </button>

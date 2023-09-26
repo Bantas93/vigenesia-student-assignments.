@@ -9,10 +9,10 @@ const Navbar = () => {
     };
   };
   return (
-    <nav class="navbar navbar-expand-lg">
-      <div class="container justify-content-center">
+    <nav className="navbar navbar-expand-lg">
+      <div className="container justify-content-center">
         <button
-          class="navbar-toggler navbar-light"
+          className="navbar-toggler navbar-light"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNavAltMarkup"
@@ -20,29 +20,26 @@ const Navbar = () => {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
         <div
-          class="collapse navbar-collapse justify-content-center"
+          className="collapse navbar-collapse justify-content-center"
           id="navbarNavAltMarkup"
         >
-          <div class="navbar-nav text-center">
-            <NavLink to="/" style={navLinkStyles} className="m-1 p-1 hov-e">
-              LandingPage
-            </NavLink>
+          <div className="navbar-nav text-center">
             <NavLink
-              to="/Data/AllData"
+              to="/DataUser"
               style={navLinkStyles}
               className="m-1 p-1 hov-e"
             >
-              Data
+              Data User
             </NavLink>
             <NavLink
-              to="/About"
+              to="/DataMotivasi"
               style={navLinkStyles}
               className="m-1 p-1 hov-e"
             >
-              About
+              Data Motivasi
             </NavLink>
           </div>
         </div>

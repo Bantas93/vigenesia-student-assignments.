@@ -3,11 +3,6 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 const UpdateData = () => {
   let { state } = useLocation();
-
-  // let nama = state.updateUser.nama;
-  // let email = state.updateUser.email;
-  // let profesi = state.updateUser.profesi;
-
   const [getNama, setNama] = useState(state.updateUser.nama);
   const [getEmail, setEmail] = useState(state.updateUser.email);
   const [getProfesi, setProfesi] = useState(state.updateUser.profesi);
@@ -50,29 +45,10 @@ const UpdateData = () => {
       "Data Berhasil Di Update !",
       (window.location.href = "/Data/AllData")
     );
-    // for (let prop in state.updateUser) {
-    //   let key = encodeURIComponent(prop);
-    //   let value = encodeURIComponent(state.updateUser[prop]);
-
-    //   console.log(
-    //     index +
-    //       " Prop: " +
-    //       prop +
-    //       " state.updateUser[prop] :" +
-    //       state.updateUser[prop] +
-    //       " " +
-    //       key +
-    //       " " +
-    //       value +
-    //       " " +
-    //       { getNama }
-    //   );
-    //   index++;
-    // }
   }
   return (
-    <div>
-      <h1>Ini Halaman Update</h1>
+    <div className="text-center">
+      <h1 className="mb-5">Update User</h1>
       <form>
         <div className="row justify-content-center">
           <div class="col-auto">
@@ -116,10 +92,7 @@ const UpdateData = () => {
         </div>
       </form>
       <button className="btn btn-danger m-3">
-        <Link
-          to="/Data/AllData"
-          style={{ textDecoration: "none", color: "white" }}
-        >
+        <Link to="/DataUser" style={{ textDecoration: "none", color: "white" }}>
           ⬅️Back
         </Link>
       </button>
@@ -131,97 +104,3 @@ const UpdateData = () => {
 };
 
 export default UpdateData;
-// import { useLocation } from "react-router-dom";
-// import { useState } from "react";
-
-// const UpdateData = () => {
-//   const { state } = useLocation();
-//   let { iduser, nama, email, profesi, password } = state.updateUser;
-//   const [formData, setFormData] = useState({
-//     nama: nama,
-//     email: email,
-//     profesi: profesi,
-//   });
-
-//   const handleInputChange = (event) => {
-//     const { name, value } = event.target;
-//     setFormData({
-//       ...formData,
-//       [name]: value,
-//     });
-//   };
-//   console.log(setFormData.nama);
-
-//   const submitUpdate = async () => {
-//     try {
-//       const response = await fetch("http://www.vigenesia.org/api/PUTprofile", {
-//         method: "PUT",
-//         headers: {
-//           "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
-//         },
-//         body: `iduser=${iduser}&nama=${formData.nama}&email=${formData.email}&profesi=${formData.profesi}&password=${password}`,
-//       });
-
-//       if (!response.ok) {
-//         throw new Error("Failed to update data");
-//       }
-
-//       // Handle success or redirect to another page
-//     } catch (error) {
-//       console.error("Error:", error);
-//       // Handle error and display a message to the user
-//     }
-//   };
-
-//   return (
-//     <div>
-//       <form>
-//         <div className="row justify-content-center">
-//           <div class="col-auto">
-//             <label class="col-form-label">Nama :</label>
-//           </div>
-//           <div class="col-auto">
-//             <input
-//               // value={setFormData.nama}
-//               class="form-control"
-//               onChange={handleInputChange}
-//             />
-//           </div>
-//         </div>
-//         <div className="row justify-content-center">
-//           <div className="row justify-content-center">
-//             <div class="col-auto">
-//               <label class="col-form-label">Email :</label>
-//             </div>
-//             <div class="col-auto">
-//               <input
-//                 // value={state.updateUser.email}
-//                 class="form-control"
-//                 onChange={handleInputChange}
-//               />
-//             </div>
-//           </div>
-//         </div>
-//         <div className="row justify-content-center">
-//           <div className="row justify-content-center">
-//             <div class="col-auto">
-//               <label class="col-form-label">Profesi :</label>
-//             </div>
-//             <div class="col-auto">
-//               <input
-//                 // value={state.updateUser.profesi}
-//                 class="form-control"
-//                 onChange={handleInputChange}
-//               />
-//             </div>
-//           </div>
-//         </div>
-//       </form>
-//       <button className="btn btn-primary m-3" onClick={submitUpdate}>
-//         Update
-//       </button>
-//     </div>
-//   );
-// };
-
-// export default UpdateData;

@@ -45,7 +45,7 @@ const UpdateMotivasi = () => {
             <label class="col-form-label">Motivasi :</label>
           </div>
           <div class="col-auto">
-            <input
+            <textarea
               value={motivasi}
               class="form-control"
               onChange={setMotivasiValue}
@@ -56,7 +56,7 @@ const UpdateMotivasi = () => {
 
       <button className="btn btn-danger m-3">
         <Link
-          to="/Data/DataMotivasi"
+          to="/DataMotivasi"
           style={{ textDecoration: "none", color: "white" }}
         >
           ⬅️Back

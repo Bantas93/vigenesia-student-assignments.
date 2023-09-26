@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Navbar from "./Navbar";
 
-const AllData = () => {
+const DataUser = () => {
   let [users, setUsers] = useState([]);
   useEffect(() => {
     fetch("http://www.vigenesia.org/api/user")
@@ -15,6 +16,7 @@ const AllData = () => {
   }, []);
   return (
     <div className="container-fluid">
+      <Navbar />
       <h4 className="text-center mt-3">
         Get Data dari {""}
         <Link
@@ -29,35 +31,27 @@ const AllData = () => {
         </Link>
       </h4>
       <div className="container p-5">
-        <table className="table table-striped mt-5">
+        <table className="table table-striped mt-5 text-center">
           <thead>
             <tr>
               <th className="border">No</th>
               <th className="border">Nama</th>
-              <th className="border">Profesi</th>
               <th className="border">Email</th>
-              <th className="border">Password</th>
-              <th className="border">Role</th>
-              <th className="border">Tgl Input</th>
-              <th className="border">Tgl Modified</th>
+              <th className="border">Profesi</th>
               <th className="border">Aksi</th>
             </tr>
           </thead>
           <tbody>
-            {users.map((user, index) => (
+            {users.map((user, no) => (
               <tr key={user.idUser}>
-                <td className="border">{index + 1}</td>
+                <td className="border">{no + 1}</td>
                 <td className="border">{user.nama}</td>
-                <td className="border">{user.profesi}</td>
                 <td className="border">{user.email}</td>
-                <td className="border">{user.password}</td>
-                <td className="border">{user.role_id}</td>
-                <td className="border ps-3 pe-3">{user.tanggal_input}</td>
-                <td className="border ps-3 pe-3">{user.modified}</td>
-                <td className="border ps-3 pe-3">
-                  <button className="btn btn-primary m-1">
+                <td className="border">{user.profesi}</td>
+                <td className="border  text-center">
+                  <button className="btn btn-primary">
                     <Link
-                      to="/Data/UpdateData"
+                      to="/UpdateData"
                       state={{ updateUser: user }}
                       style={{ textDecoration: "none", color: "white" }}
                     >
@@ -74,4 +68,4 @@ const AllData = () => {
   );
 };
 
-export default AllData;
+export default DataUser;
