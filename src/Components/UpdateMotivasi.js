@@ -29,6 +29,7 @@ const UpdateMotivasi = () => {
       (window.location.href = "/Data/DataMotivasi")
     );
   };
+
   return (
     <div className="text-center">
       <form>

@@ -14,7 +14,11 @@
 
 .bg-login {
   height: 100vh;
-  background-color: #ef0e43;
+  /* background-color: #ef0e43; */
+  background-image: url(./assets/img/bg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .hov:hover {
