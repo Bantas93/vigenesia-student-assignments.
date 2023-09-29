@@ -1,70 +1,69 @@
-# Getting Started with Create React App
+# Aplikasi VIGENESIA
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Ini adalah tugas dari kampus saya untuk pengembangan aplikasi.
+Aplikasi ini menggunakan REST API dari http://www.vigenesia.org/
 
-## Available Scripts
+![Teks Alt](https://github.com/Bantas93/portofolio-react-js/blob/master/src/assets/testimoni/review.png?raw=true)
 
-In the project directory, you can run:
+### Framework n Library
 
-### `npm start`
+- React JS
+- React Router Dom
+- React Bootstrap
+- Bootstrap 5
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Bahasa Pemrograman
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Javascript
+- HTML
+- CSS
 
-### `npm test`
+## Fitur
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **DaftarAkun**: Terdapat Form untuk daftar akun dimana data tersebut akan langsung dikirim ke API.
 
-### `npm run build`
+- **Login**: untuk masuk ke aplikasi dengan data akun yang sudah
+  tersedia di API.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **UpdateProfil**: mengedit data akun mulai dari nama,profesi, dll kemudian langsung dikrim kembali ke API.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **PostMotivasi**: memposting data motivasi dan langsung dapat dilihat.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **DeleteMotivasi**: untuk menghapus data motivasi per posting.
 
-### `npm run eject`
+- **EditMotivasi**: untuk mengedit data motivasi per posting.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Cara Menjalankan Proyek Ini
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Pastikan anda sudah menginstall gitbash di komputer anda, bila belum, install dulu di https://git-scm.com/downloads
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. Clone repositori ini ke komputer Anda.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+git clone https://github.com/Bantas93/tws-sms5.git
 
-## Learn More
+2. Masuk ke direktori proyek.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+lewat cmd : dir/cd tws-sms5
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+3. buka direktori menggunakan kode editor kalian.
 
-### Code Splitting
+disini saya menggunakan Visual Studio Code.
+link download : https://code.visualstudio.com/download
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+4. Jalankan proyek.
 
-### Analyzing the Bundle Size
+buka terminal baik di kode editor maupun di windows, ketik : npm(spasi)start
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+5. Proyek berjalan di browser.
 
-### Making a Progressive Web App
+## Jika Error
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### pastikan komputer anda sudah terinstal node JS
 
-### Advanced Configuration
+Link Download : https://nodejs.org/en/download/current
+aplikasi ini memakai node JS versi v18.17.1 dan npm versi 9.8.1
+cek versi Node Js dan NPM kalian lewat cmd dengan mengetik node(spasi)-v dan npm(spasi)-v.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Terima Kasih
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Semoga Dokumentasi ini cukup jelas dan bisa diimplementasikan oleh kalian.
