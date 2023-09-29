@@ -16,14 +16,22 @@ const Login = () => {
   const handlePasswordValue = (e) => {
     setPassword(e.target.value);
   };
-
   const submit = () => {
     if (!email || !password) {
       // Validasi jika email atau password kosong
-      window.alert("Email dan password harus diisi.");
+      const alert = document.createElement("div");
+      alert.className = "alert alert-danger";
+      alert.setAttribute = ("role", "alert");
+      alert.innerHTML = "Email dan password harus diisi !";
+      const alertElement = document.getElementById("alert");
+      alertElement.appendChild(alert);
+      // Set waktu Tampil
+      setTimeout(function () {
+        alertElement.removeChild(alert);
+      }, 4000);
+      // window.alert("Email dan password harus diisi.");
       return;
     }
-
     let formbody = [];
     const value2 = encodeURIComponent(email);
     const value3 = encodeURIComponent(password);
@@ -51,50 +59,59 @@ const Login = () => {
         } else {
           if (data.message === undefined) {
             // Autentikasi gagal
-            window.alert("Autentikasi gagal: data tidak sesuai");
+            const alert = document.createElement("div");
+            alert.className = "alert alert-danger";
+            alert.setAttribute = ("role", "alert");
+            alert.innerHTML =
+              "Data yang anda masukkan tidak tersedia. Harap masukkan data yang benar !";
+            const alertElement = document.getElementById("alert");
+            alertElement.appendChild(alert);
+            // Set waktu Tampil
+            setTimeout(function () {
+              alertElement.removeChild(alert);
+            }, 5000);
+            // window.alert(
+            //   "Data yang anda masukkan tidak tersedia. Harap masukkan data yang benar !"
+            // );
           } else {
-            window.alert(data.message);
+            // window.alert(data.message);
             localStorage.setItem("iduser", data.data.iduser);
             localStorage.setItem("nama", data.data.nama);
             localStorage.setItem("email", data.data.email);
             localStorage.setItem("role_id", data.data.role_id);
             localStorage.setItem("profesi", data.data.profesi);
-            window.location.href = "/DataUser";
+            const alert = document.createElement("div");
+            alert.className = "alert alert-success";
+            alert.setAttribute = ("role", "alert");
+            alert.innerHTML = data.message;
+            const alertElement = document.getElementById("alert");
+            alertElement.appendChild(alert);
+            setTimeout(function () {
+              alertElement.removeChild(alert);
+              window.location.href = "/DataUser";
+            }, 4000);
           }
         }
       })
       .catch((error) => {
         console.error("Terjadi kesalahan: " + error);
       });
-    // let formbody = [];
-    // const value2 = encodeURIComponent(email);
-    // const value3 = encodeURIComponent(password);
-    // const key2 = encodeURIComponent("email");
-    // const key3 = encodeURIComponent("password");
-    // formbody.push(key2 + "=" + value2);
-    // formbody.push(key3 + "=" + value3);
-    // formbody = formbody.join("&");
-    // console.log(formbody);
-    // fetch("http://www.vigenesia.org/api/login", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
-    //   },
-    //   body: formbody,
-    // })
-    //   .then((response) => response.json())
-    //   .then((data) => {});
   };
   return (
     <div className="container-fluid d-flex flex-column justify-content-center align-items-center bg-login">
+      <div id="alert"></div>
       <h2 className="d-flex text-white p-3" style={{ letterSpacing: "5px" }}>
         VIGENESIA
       </h2>
       <div
         className="card shadow-lg p-4 mb-2 bg-body-tertiary rounded"
-        style={{ width: "22rem", opacity: "85%" }}
+        style={{ width: "22rem", opacity: "80%" }}
       >
         <div className="card-body">
+          <h4 className="text-center" style={{ letterSpacing: "2px" }}>
+            LOGIN
+          </h4>
+          <hr />
           <div className="mb-3">
             <label name="inputEmail" className="form-label">
               Email
