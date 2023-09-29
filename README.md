@@ -3,7 +3,7 @@
 Ini adalah tugas dari kampus saya untuk pengembangan aplikasi.
 Aplikasi ini menggunakan REST API dari http://www.vigenesia.org/
 
-![Teks Alt](https://github.com/Bantas93/portofolio-react-js/blob/master/src/assets/testimoni/review.png?raw=true)
+![Teks Alt](https://github.com/Bantas93/tws-sms5/blob/master/src/assets/review/review.png?raw=true)
 
 ### Framework n Library
 
