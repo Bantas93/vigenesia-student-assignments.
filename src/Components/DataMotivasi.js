@@ -60,7 +60,7 @@ const DataMotivasi = () => {
       <div className="container-fluid">
         <Navbar />
         <h4 className="text-center mt-3">
-          Get Data dari {""}
+          Kumpulan Motivasi {""}
           <Link
             to="http://www.vigenesia.org/api/Get_motivasi"
             style={{
@@ -77,11 +77,11 @@ const DataMotivasi = () => {
             <thead>
               <tr>
                 <th className="border">No</th>
-                <th className="border">Motivasi</th>
                 <th className="border">Id User</th>
                 <th className="border">Tgl Input</th>
+                <th className="border">Motivasi</th>
                 <th className="border">Tgl Update</th>
-                <th className="border">Id</th>
+                {/* <th className="border">Id</th> */}
                 <th className="border">Aksi</th>
               </tr>
             </thead>
@@ -89,11 +89,11 @@ const DataMotivasi = () => {
               {motivasiData.map((motivasi, index) => (
                 <tr key={motivasi.id}>
                   <td className="border">{index + 1}</td>
-                  <td className="border">{motivasi.isi_motivasi}</td>
                   <td className="border">{motivasi.iduser}</td>
                   <td className="border">{motivasi.tanggal_input}</td>
+                  <td className="border">" {motivasi.isi_motivasi} "</td>
                   <td className="border">{motivasi.tanggal_update}</td>
-                  <td className="border">{motivasi.id}</td>
+                  {/* <td className="border">{motivasi.id}</td> */}
                   <td className="border">
                     <button className="btn btn-primary m-1">
                       <Link

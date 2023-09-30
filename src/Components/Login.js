@@ -88,7 +88,7 @@ const Login = () => {
             alertElement.appendChild(alert);
             setTimeout(function () {
               alertElement.removeChild(alert);
-              window.location.href = "/DataUser";
+              window.location.href = "/DataMotivasi";
             }, 4000);
           }
         }
