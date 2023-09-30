@@ -8,6 +8,10 @@ const Navbar = () => {
       fontWeight: isActive ? "bold" : "",
     };
   };
+  function clearData() {
+    localStorage.clear();
+    window.location.href = "/";
+  }
   return (
     <nav className="navbar navbar-expand-lg">
       <div className="container justify-content-center">
@@ -43,6 +47,9 @@ const Navbar = () => {
             </NavLink>
           </div>
         </div>
+        <button onClick={clearData} className="btn btn-danger">
+          Logout
+        </button>
       </div>
     </nav>
   );
