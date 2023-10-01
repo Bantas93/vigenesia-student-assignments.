@@ -11,6 +11,7 @@ Aplikasi ini menggunakan REST API dari http://www.vigenesia.org/
 - React Router Dom
 - React Bootstrap
 - Bootstrap 5
+- Sweetalert2
 
 ### Bahasa Pemrograman
 

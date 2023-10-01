@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+// import "sweetalert2";
 // window.addEventListener("beforeunload", (e) => {
 //   e.preventDefault();
 //   return (
@@ -7,6 +8,7 @@ import { Link } from "react-router-dom";
 //   );
 // });
 const Login = () => {
+  const Swal = require("sweetalert2");
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
@@ -19,16 +21,23 @@ const Login = () => {
   const submit = () => {
     if (!email || !password) {
       // Validasi jika email atau password kosong
-      const alert = document.createElement("div");
-      alert.className = "alert alert-danger";
-      alert.setAttribute = ("role", "alert");
-      alert.innerHTML = "Email dan password harus diisi !";
-      const alertElement = document.getElementById("alert");
-      alertElement.appendChild(alert);
+      Swal.fire({
+        title: "Error!",
+        text: "Email dan password harus diisi.",
+        icon: "error",
+        confirmButtonText: "Oke",
+      });
+      // const alert = document.createElement("div");
+      // alert.className = "alert alert-danger";
+      // alert.setAttribute = ("role", "alert");
+      // alert.innerHTML = "Email dan password harus diisi !";
+      // const alertElement = document.getElementById("alert");
+      // alertElement.appendChild(alert);
+
       // Set waktu Tampil
-      setTimeout(function () {
-        alertElement.removeChild(alert);
-      }, 4000);
+      // setTimeout(function () {
+
+      // }, 2000);
       // window.alert("Email dan password harus diisi.");
       return;
     }
@@ -59,37 +68,58 @@ const Login = () => {
         } else {
           if (data.message === undefined) {
             // Autentikasi gagal
-            const alert = document.createElement("div");
-            alert.className = "alert alert-danger";
-            alert.setAttribute = ("role", "alert");
-            alert.innerHTML =
-              "Data yang anda masukkan tidak tersedia. Harap masukkan data yang benar !";
-            const alertElement = document.getElementById("alert");
-            alertElement.appendChild(alert);
-            // Set waktu Tampil
-            setTimeout(function () {
-              alertElement.removeChild(alert);
-            }, 5000);
+            Swal.fire({
+              title: "Error!",
+              text: "Data yang anda masukkan tidak tersedia.",
+              icon: "error",
+              confirmButtonText: "Oke",
+            });
+            // const alert = document.createElement("div");
+            // alert.className = "alert alert-danger";
+            // alert.setAttribute = ("role", "alert");
+            // alert.innerHTML =
+            //   "Data yang anda masukkan tidak tersedia. Harap masukkan data yang benar !";
+            // const alertElement = document.getElementById("alert");
+            // alertElement.appendChild(alert);
+            // // Set waktu Tampil
+            // setTimeout(function () {
+            //   alertElement.removeChild(alert);
+            // }, 5000);
             // window.alert(
             //   "Data yang anda masukkan tidak tersedia. Harap masukkan data yang benar !"
             // );
           } else {
+            const Swal = require("sweetalert2");
             // window.alert(data.message);
             localStorage.setItem("iduser", data.data.iduser);
             localStorage.setItem("nama", data.data.nama);
             localStorage.setItem("email", data.data.email);
             localStorage.setItem("role_id", data.data.role_id);
             localStorage.setItem("profesi", data.data.profesi);
-            const alert = document.createElement("div");
-            alert.className = "alert alert-success";
-            alert.setAttribute = ("role", "alert");
-            alert.innerHTML = data.message;
-            const alertElement = document.getElementById("alert");
-            alertElement.appendChild(alert);
-            setTimeout(function () {
-              alertElement.removeChild(alert);
-              window.location.href = "/DataMotivasi";
-            }, 4000);
+            Swal.fire(
+              {
+                title: "success",
+                text: data.message,
+                icon: "success",
+                confirmButtonText: "Oke",
+              },
+              10000
+            ).then((result) => {
+              if (result.isConfirmed) {
+                window.location.href = "/Dashboard";
+              }
+            });
+            // window.location.href = "/Dashboard";
+            // const alert = document.createElement("div");
+            // alert.className = "alert alert-success";
+            // alert.setAttribute = ("role", "alert");
+            // alert.innerHTML = data.message;
+            // const alertElement = document.getElementById("alert");
+            // alertElement.appendChild(alert);
+            // setTimeout(function () {
+            //   window.location.href = "/DataMotivasi";
+            //   alertElement.removeChild(alert);
+            // }, 1000);
           }
         }
       })

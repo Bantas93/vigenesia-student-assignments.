@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-
+// import "sweetalert2";
 const Daftar = () => {
   const [nama, setNama] = useState();
   const [profesi, setProfesi] = useState();
@@ -21,6 +21,7 @@ const Daftar = () => {
   };
 
   const submit = () => {
+    const Swal = require("sweetalert2");
     let formbody = [];
     const value1 = encodeURIComponent(nama);
     const value2 = encodeURIComponent(profesi);
@@ -46,10 +47,27 @@ const Daftar = () => {
       .then((data) => {
         console.log(data);
         if (data.data == null) {
-          window.alert(data);
+          Swal.fire({
+            title: "error",
+            text: data,
+            icon: "error",
+            confirmButtonText: "Oke",
+          });
+          // window.alert(data);
         } else {
-          window.alert("Vigenesia said: " + data.message);
-          window.location.href = "/";
+          Swal.fire({
+            title: "success",
+            text: data.message,
+            icon: "success",
+            confirmButtonText: "Silahkan Login",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              window.location.href = "/";
+            }
+          });
+
+          // window.alert("Vigenesia said: " + data.message);
+          // window.location.href = "/";
         }
       });
   };

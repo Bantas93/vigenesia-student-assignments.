@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // import Navbar from "./Components/Navbar";
 import Login from "./Components/Login";
 import Daftar from "./Components/Daftar";
+import Dashboard from "./Components/Dashboard";
 import DataUser from "./Components/DataUser";
 import DataMotivasi from "./Components/DataMotivasi";
 import UpdateData from "./Components/UpdateData";
@@ -13,6 +14,7 @@ function App() {
       <>
         {/* <Navbar /> */}
         <Routes>
+          <Route path="/Dashboard" element={<Dashboard />} />
           <Route path="/DataUser" element={<DataUser />} />
           <Route path="/DataMotivasi" element={<DataMotivasi />} />
           <Route path="/" element={<Login />} />
