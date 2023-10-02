@@ -1,5 +1,7 @@
 # Aplikasi VIGENESIA
 
+## Masih dalam pengembangan
+
 Ini adalah tugas dari kampus saya untuk pengembangan aplikasi.
 Aplikasi ini menggunakan REST API dari http://www.vigenesia.org/
 
@@ -64,6 +66,10 @@ buka terminal baik di kode editor maupun di windows, ketik : npm(spasi)start
 Link Download : https://nodejs.org/en/download/current
 aplikasi ini memakai node JS versi v18.17.1 dan npm versi 9.8.1
 cek versi Node Js dan NPM kalian lewat cmd dengan mengetik node(spasi)-v dan npm(spasi)-v.
+
+## Jika ingin bantu saya mengembangkan aplikasi ini
+
+pull req : https://github.com/Bantas93/tws-sms5.git
 
 ## Terima Kasih
 
