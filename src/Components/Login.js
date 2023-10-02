@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-// import "sweetalert2";
 // window.addEventListener("beforeunload", (e) => {
 //   e.preventDefault();
 //   return (
@@ -59,6 +58,7 @@ const Login = () => {
     })
       .then((response) => response.json())
       .then((data) => {
+        console.log(data);
         if (data.success) {
           // Autentikasi berhasil
           // localStorage.setItem("email", data.data.email);
@@ -96,15 +96,12 @@ const Login = () => {
             localStorage.setItem("email", data.data.email);
             localStorage.setItem("role_id", data.data.role_id);
             localStorage.setItem("profesi", data.data.profesi);
-            Swal.fire(
-              {
-                title: "success",
-                text: data.message,
-                icon: "success",
-                confirmButtonText: "Oke",
-              },
-              10000
-            ).then((result) => {
+            Swal.fire({
+              title: "success",
+              text: data.message,
+              icon: "success",
+              confirmButtonText: "Oke",
+            }).then((result) => {
               if (result.isConfirmed) {
                 window.location.href = "/Dashboard";
               }

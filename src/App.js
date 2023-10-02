@@ -14,10 +14,10 @@ function App() {
       <>
         {/* <Navbar /> */}
         <Routes>
+          <Route path="/" element={<Login />} />
           <Route path="/Dashboard" element={<Dashboard />} />
           <Route path="/DataUser" element={<DataUser />} />
           <Route path="/DataMotivasi" element={<DataMotivasi />} />
-          <Route path="/" element={<Login />} />
           <Route path="/Daftar" element={<Daftar />} />
           <Route path="/UpdateData" element={<UpdateData />} />
           <Route path="/UpdateMotivasi" element={<UpdateMotivasi />} />

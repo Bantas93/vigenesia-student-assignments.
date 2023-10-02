@@ -7,6 +7,15 @@
   background-attachment: fixed;
 }
 
+.bg-Dashboard {
+  /* height: 100vh; */
+  /* background-color: #ef0e43; */
+  background-image: url(./assets/img/bg.jpg);
+  background-size: cover;
+  background-repeat: repeat;
+  background-attachment: fixed;
+}
+
 .hov:hover {
   border-radius: 5%;
   background-color: #edf1fd1d;

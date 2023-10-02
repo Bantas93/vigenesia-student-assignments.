@@ -17,6 +17,7 @@ const UpdateData = () => {
     setProfesi(event.target.value);
   };
   function submitUpdate() {
+    const Swal = require("sweetalert2");
     let formbody = [];
     // const index = 1;
     const value1 = encodeURIComponent(getNama);
@@ -41,10 +42,20 @@ const UpdateData = () => {
       },
       body: formbody,
     });
-    window.alert(
-      "Data Berhasil Di Update !",
-      (window.location.href = "/Data/AllData")
-    );
+    Swal.fire({
+      title: "success",
+      text: "Data berhasil di Update !",
+      icon: "success",
+      confirmButtonText: "Oke",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.location.href = "/DataUser";
+      }
+    });
+    // window.alert(
+    //   "Data Berhasil Di Update !",
+    //   (window.location.href = "/DataUser")
+    // );
   }
   return (
     <div className="text-center">

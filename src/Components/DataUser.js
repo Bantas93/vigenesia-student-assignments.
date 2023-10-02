@@ -48,6 +48,7 @@ const DataUser = () => {
             <thead>
               <tr>
                 <th className="border">No</th>
+                <th className="border">Id User</th>
                 <th className="border">Nama</th>
                 <th className="border">Email</th>
                 <th className="border">Profesi</th>
@@ -56,8 +57,9 @@ const DataUser = () => {
             </thead>
             <tbody>
               {users.map((user, no) => (
-                <tr key={user.idUser}>
+                <tr key={user.iduser}>
                   <td className="border">{no + 1}</td>
+                  <td className="border">{user.iduser}</td>
                   <td className="border">{user.nama}</td>
                   <td className="border">{user.email}</td>
                   <td className="border">{user.profesi}</td>
