@@ -66,7 +66,7 @@ const UpdateMotivasi = () => {
             to="/Dashboard"
             style={{ textDecoration: "none", color: "white" }}
           >
-            ⬅️Back
+            ⬅️ Kembali
           </Link>
         </button>
         <button className="btn btn-primary m-3" onClick={submitMotivasi}>
