@@ -6,16 +6,24 @@ const UpdateData = () => {
   const [getNama, setNama] = useState(state.updateUser.nama);
   const [getEmail, setEmail] = useState(state.updateUser.email);
   const [getProfesi, setProfesi] = useState(state.updateUser.profesi);
+  const [getPassword, setPassword] = useState(state.updateUser.password);
 
   const setNamaValue = (event) => {
     setNama(event.target.value);
   };
+
   const setEmailValue = (event) => {
     setEmail(event.target.value);
   };
+
   const setProfesiValue = (event) => {
     setProfesi(event.target.value);
   };
+
+  const setPasswordValue = (event) => {
+    setPassword(event.target.value);
+  };
+
   function submitUpdate() {
     const Swal = require("sweetalert2");
     let formbody = [];
@@ -83,6 +91,18 @@ const UpdateData = () => {
                 value={getEmail}
                 class="form-control"
                 onChange={setEmailValue}
+              />
+            </div>
+          </div>
+          <div className="row justify-content-center">
+            <div class="col-auto">
+              <label class="col-form-label">Password :</label>
+            </div>
+            <div class="col-auto">
+              <input
+                value={getPassword}
+                class="form-control"
+                onChange={setPasswordValue}
               />
             </div>
           </div>

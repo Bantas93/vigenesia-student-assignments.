@@ -26,7 +26,7 @@ const UpdateMotivasi = () => {
     });
     window.alert(
       "Data Berhasil Di Update",
-      (window.location.href = "/Data/DataMotivasi")
+      (window.location.href = "/Dashboard")
     );
   };
 

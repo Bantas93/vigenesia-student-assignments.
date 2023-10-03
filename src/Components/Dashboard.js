@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 const Dashboard = () => {
   const iduser = localStorage.iduser;
@@ -26,23 +27,29 @@ const Dashboard = () => {
     });
   }
 
+  const postMotivasi = () => {
+    window.location.href = "/PostMotivasi";
+  };
+
   useEffect(() => {
-    fetch("http://www.vigenesia.org/api/Get_motivasi")
+    fetch(`http://www.vigenesia.org/api/Get_motivasi/`)
       .then((response) => response.json())
       .then((data) => {
         setMotivasiData(data);
+        console.log(data);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
-  }, []);
+  });
 
   return (
-    <div className=" bg-Dashboard">
+    <div className="">
       <div className="container-fluid p-3">
-        <div className="text-start m-3">
-          <span>id : {iduser}</span>
+        <span>id : {iduser}</span>
+        <div className="text-center m-3">
           <h1
+            className="m-3"
             style={{
               fontWeight: "bold",
               textShadow: "1px 2px 5px pink",
@@ -51,15 +58,21 @@ const Dashboard = () => {
             }}
           >
             Welcome,{" "}
-            <span style={{ fontSize: "45px", color: "purple" }}>{nama} !</span>
+            <span style={{ fontSize: "40px", color: "purple" }}>{nama} !</span>
           </h1>
-          <button className="btn btn-success border-dark" disabled>
-            {profesi}
-          </button>
-          <button onClick={clearData} className="btn btn-danger m-1">
-            Logout
-          </button>
+          <p>
+            Profesi :{" "}
+            <button className="btn btn-success border-dark" disabled>
+              {profesi}
+            </button>
+          </p>
         </div>
+        <button onClick={clearData} className="btn btn-danger m-1">
+          Logout
+        </button>
+        <button onClick={postMotivasi} className="btn btn-primary m-1">
+          Post Motivasi
+        </button>
         <hr />
         <div>
           {motivasiData.map((motivasi) => (
@@ -71,12 +84,12 @@ const Dashboard = () => {
               }}
             >
               <div
-                className="card-body rounded text-end bg-secondary text-light"
+                className="card-body rounded text-center bg-secondary-subtle text-dark"
                 style={{
-                  border: "dotted black 3px",
+                  border: "solid black 3px",
                   fontWeight: "bold",
-                  letterSpacing: "5px",
-                  textShadow: "2px 1px 3px black",
+                  letterSpacing: "1px",
+                  textShadow: "1px 1px 3px white",
                 }}
               >
                 " {motivasi.isi_motivasi} "
@@ -93,6 +106,18 @@ const Dashboard = () => {
                   <div className="d-flex">
                     <div className="card-body">
                       Update : {motivasi.tanggal_update}
+                    </div>
+                  </div>
+                  <div className="d-flex">
+                    <div className="card-body">
+                      <Link
+                        to="/UpdateMotivasi"
+                        state={{ updateMotivasi: motivasi }}
+                        style={{ textDecoration: "none", color: "white" }}
+                        className="btn btn-primary text-center"
+                      >
+                        Update
+                      </Link>
                     </div>
                   </div>
                 </div>

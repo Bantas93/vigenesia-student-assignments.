@@ -7,6 +7,7 @@ import DataUser from "./Components/DataUser";
 import DataMotivasi from "./Components/DataMotivasi";
 import UpdateData from "./Components/UpdateData";
 import UpdateMotivasi from "./Components/UpdateMotivasi";
+import PostMotivasi from "./Components/PostMotivasi";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/Daftar" element={<Daftar />} />
           <Route path="/UpdateData" element={<UpdateData />} />
           <Route path="/UpdateMotivasi" element={<UpdateMotivasi />} />
+          <Route path="/PostMotivasi" element={<PostMotivasi />} />
         </Routes>
       </>
     </Router>
