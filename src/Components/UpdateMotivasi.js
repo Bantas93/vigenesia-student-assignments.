@@ -57,7 +57,7 @@ const UpdateMotivasi = () => {
 
       <button className="btn btn-danger m-3">
         <Link
-          to="/DataMotivasi"
+          to="/MotivasiUser"
           style={{ textDecoration: "none", color: "white" }}
         >
           ⬅️Back

@@ -1,7 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 const Dashboard = () => {
+  const navLinkStyles = ({ isActive }) => {
+    return {
+      color: isActive ? "white" : "black",
+      textDecoration: isActive ? "none" : "none",
+      fontWeight: isActive ? "bold" : "",
+    };
+  };
   const iduser = localStorage.iduser;
   const nama = localStorage.nama;
   const profesi = localStorage.profesi;
@@ -27,10 +34,6 @@ const Dashboard = () => {
     });
   }
 
-  const postMotivasi = () => {
-    window.location.href = "/PostMotivasi";
-  };
-
   useEffect(() => {
     fetch(`http://www.vigenesia.org/api/Get_motivasi/`)
       .then((response) => response.json())
@@ -41,7 +44,7 @@ const Dashboard = () => {
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
-  });
+  }, []);
 
   return (
     <div className="">
@@ -67,12 +70,30 @@ const Dashboard = () => {
             </button>
           </p>
         </div>
-        <button onClick={clearData} className="btn btn-danger m-1">
-          Logout
-        </button>
-        <button onClick={postMotivasi} className="btn btn-primary m-1">
-          Post Motivasi
-        </button>
+        <div className="row align-items-end">
+          <div className="d-flex col-md-4">
+            <button onClick={clearData} className="d-flex btn btn-danger m-1">
+              Logout
+            </button>
+          </div>
+          <div className="col-md-4"></div>
+          <div className="d-flex">
+            <NavLink
+              to="/Dashboard"
+              className="d-flex btn btn-secondary m-1"
+              style={navLinkStyles}
+            >
+              Motivasi All
+            </NavLink>
+            <NavLink
+              to="/MotivasiUser"
+              className="d-flex btn btn-secondary m-1"
+              style={navLinkStyles}
+            >
+              Motivasi Saya
+            </NavLink>
+          </div>
+        </div>
         <hr />
         <div>
           {motivasiData.map((motivasi) => (
@@ -106,18 +127,6 @@ const Dashboard = () => {
                   <div className="d-flex">
                     <div className="card-body">
                       Update : {motivasi.tanggal_update}
-                    </div>
-                  </div>
-                  <div className="d-flex">
-                    <div className="card-body">
-                      <Link
-                        to="/UpdateMotivasi"
-                        state={{ updateMotivasi: motivasi }}
-                        style={{ textDecoration: "none", color: "white" }}
-                        className="btn btn-primary text-center"
-                      >
-                        Update
-                      </Link>
                     </div>
                   </div>
                 </div>

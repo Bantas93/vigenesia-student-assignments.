@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./Components/Login";
 import Daftar from "./Components/Daftar";
 import Dashboard from "./Components/Dashboard";
+import MotivasiUser from "./Components/MotivasiUser";
 import DataUser from "./Components/DataUser";
 import DataMotivasi from "./Components/DataMotivasi";
 import UpdateData from "./Components/UpdateData";
@@ -17,6 +18,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/Dashboard" element={<Dashboard />} />
+          <Route path="/MotivasiUser" element={<MotivasiUser />} />
           <Route path="/DataUser" element={<DataUser />} />
           <Route path="/DataMotivasi" element={<DataMotivasi />} />
           <Route path="/Daftar" element={<Daftar />} />
