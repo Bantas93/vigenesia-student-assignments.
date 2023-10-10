@@ -14,6 +14,7 @@ const MotivasiUser = () => {
   const profesi = localStorage.profesi;
   let [motivasiData, setMotivasiData] = useState([]);
   const Swal = require("sweetalert2");
+  const [loading, setLoading] = useState(true);
 
   function clearData() {
     Swal.fire({
@@ -43,6 +44,7 @@ const MotivasiUser = () => {
       .then((response) => response.json())
       .then((data) => {
         setMotivasiData(data);
+        setLoading(false);
         console.log(data);
       })
       .catch((error) => {
@@ -109,55 +111,67 @@ const MotivasiUser = () => {
           </div>
           <hr />
           <div>
-            {motivasiData.map((motivasi) => (
-              <div
-                className="card shadow-sm m-3 p-3 bg-secondary-subtle"
-                key={motivasi.id}
-                style={{
-                  opacity: "90%",
-                }}
-              >
+            {loading ? ( // Check if loading is true, show loading indicator
+              <div className="d-flex justify-content-center">
                 <div
-                  className="card-body rounded text-center bg-secondary-subtle text-dark"
+                  class="spinner-border text-primary"
+                  role="status"
+                  style={{ height: "150px", width: "150px" }}
+                ></div>
+              </div>
+            ) : (
+              motivasiData.map((motivasi) => (
+                <div
+                  className="card shadow-sm m-3 p-3 bg-secondary-subtle"
+                  key={motivasi.id}
                   style={{
-                    border: "solid black 3px",
-                    fontWeight: "bold",
-                    letterSpacing: "1px",
-                    textShadow: "1px 1px 3px white",
+                    opacity: "90%",
                   }}
                 >
-                  " {motivasi.isi_motivasi} "
-                </div>
-                <hr />
-                <div className="d-flex" style={{ fontWeight: "lighter" }}>
-                  <div className="d-flex">
+                  <div
+                    className="card-body rounded text-center bg-secondary-subtle text-dark"
+                    style={{
+                      border: "solid black 3px",
+                      fontWeight: "bold",
+                      letterSpacing: "1px",
+                      textShadow: "1px 1px 3px white",
+                    }}
+                  >
+                    " {motivasi.isi_motivasi} "
+                  </div>
+                  <hr />
+                  <div className="d-flex" style={{ fontWeight: "lighter" }}>
                     <div className="d-flex">
-                      <span className="card-body">id : {motivasi.iduser}</span>
-                    </div>
-                    <div className="card-body">
-                      Input : {motivasi.tanggal_input}
-                    </div>
-                    <div className="d-flex">
-                      <div className="card-body">
-                        Update : {motivasi.tanggal_update}
+                      <div className="d-flex">
+                        <span className="card-body">
+                          id : {motivasi.iduser}
+                        </span>
                       </div>
-                    </div>
-                    <div className="d-flex">
                       <div className="card-body">
-                        <Link
-                          to="/UpdateMotivasi"
-                          state={{ updateMotivasi: motivasi }}
-                          style={{ textDecoration: "none", color: "white" }}
-                          className="btn btn-primary text-center"
-                        >
-                          Update
-                        </Link>
+                        Input : {motivasi.tanggal_input}
+                      </div>
+                      <div className="d-flex">
+                        <div className="card-body">
+                          Update : {motivasi.tanggal_update}
+                        </div>
+                      </div>
+                      <div className="d-flex">
+                        <div className="card-body">
+                          <Link
+                            to="/UpdateMotivasi"
+                            state={{ updateMotivasi: motivasi }}
+                            style={{ textDecoration: "none", color: "white" }}
+                            className="btn btn-primary text-center"
+                          >
+                            Update
+                          </Link>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))
+            )}
           </div>
         </div>
         <Outlet />
