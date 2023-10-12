@@ -3,11 +3,11 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 const UpdateData = () => {
   let { state } = useLocation();
-  const [getNama, setNama] = useState(state.updateUser.nama);
-  const [getEmail, setEmail] = useState(state.updateUser.email);
-  const [getProfesi, setProfesi] = useState(state.updateUser.profesi);
-  const [getPassword, setPassword] = useState(state.updateUser.password);
-
+  const [getNama, setNama] = useState(localStorage.nama);
+  const [getEmail, setEmail] = useState(localStorage.email);
+  const [getProfesi, setProfesi] = useState(localStorage.profesi);
+  const [getPassword, setPassword] = useState(localStorage.password);
+  console.log(state.password);
   const setNamaValue = (event) => {
     setNama(event.target.value);
   };
@@ -123,7 +123,10 @@ const UpdateData = () => {
         </div>
       </form>
       <button className="btn btn-danger m-3">
-        <Link to="/DataUser" style={{ textDecoration: "none", color: "white" }}>
+        <Link
+          to="/Dashboard"
+          style={{ textDecoration: "none", color: "white" }}
+        >
           ⬅️Back
         </Link>
       </button>

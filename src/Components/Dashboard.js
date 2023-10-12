@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 const Dashboard = () => {
   const navLinkStyles = ({ isActive }) => {
@@ -52,6 +52,15 @@ const Dashboard = () => {
     <div className="">
       <div className="container-fluid p-3">
         <span>id : {iduser}</span>
+        <button className="btn btn-primary">
+          <Link
+            to="/UpdateData"
+            state={{ updateUser: iduser }}
+            style={{ textDecoration: "none", color: "white" }}
+          >
+            Edit Profil
+          </Link>
+        </button>
         <div className="text-center m-3">
           <h1
             className="m-3"
